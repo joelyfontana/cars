@@ -3,11 +3,35 @@
 #Joely Fontana
 
 echo "My Old Cars Inventory System"
-read My_Old_Cars
 
-while echo $My_Old_Cars
+stay=true
+while $stay 
 do
-	echo "Enter a Car: Press 1"
-	echo "List Cars: Press 2"
-	echo "Quit: Press Q"
+	echo "1: Enter a Car"	
+	echo "2: List Cars"
+	echo "Q: Quit"
+	read pickOne
+	case $pickOne in 
+	"1")
+		echo "Enter the year of the car: "
+		read year
+		echo "Enter the make of the car: "
+		read make
+		echo "Enter the model of the car: "
+		read model
+		carName=$year" "$make" "$model
+		echo $carName >>"My_Old_Cars.txt"
+		;;
+	"2")
+		sort -n "My_Old_Cars.txt"
+		;;
+	"Q")
+		stay=false
+		;;
+	esac
+done
+echo "Goodbye"
+
+	
+
 	 
